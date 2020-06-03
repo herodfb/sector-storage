@@ -254,7 +254,7 @@ func (m *Manager) AddPiece(ctx context.Context, sector abi.SectorID, existingPie
 	if len(existingPieces) == 0 { // new
 		selector, err = newAllocSelector(ctx, m.index, stores.FTUnsealed)
 	} else { // use existing
-		selector, err = newExistingSelector(ctx, m.index, sector, stores.FTUnsealed, false)
+		selector, err = newExistingSelector(ctx, m.index, sector, stores.FTUnsealed, true)
 	}
 	if err != nil {
 		return abi.PieceInfo{}, xerrors.Errorf("creating path selector: %w", err)
